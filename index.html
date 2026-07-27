@@ -1,1 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Car Racing Game</title>
 
+<style>
+body{
+    margin:0;
+    background:#333;
+    overflow:hidden;
+}
+
+#game{
+    width:350px;
+    height:600px;
+    background:#555;
+    margin:auto;
+    position:relative;
+    overflow:hidden;
+    border:5px solid white;
+}
+
+.road-line{
+    width:10px;
+    height:80px;
+    background:white;
+    position:absolute;
+    left:170px;
+}
+
+#car{
+    width:50px;
+    height:90px;
+    background:red;
+    position:absolute;
+    bottom:20px;
+    left:150px;
+    border-radius:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="game">
+    <div class="road-line" style="top:0;"></div>
+    <div class="road-line" style="top:120px;"></div>
+    <div class="road-line" style="top:240px;"></div>
+    <div class="road-line" style="top:360px;"></div>
+    <div class="road-line" style="top:480px;"></div>
+
+    <div id="car"></div>
+</div>
+
+<script>
+let car = document.getElementById("car");
+let x = 150;
+
+document.addEventListener("keydown",function(e){
+    if(e.key==="ArrowLeft" && x>20){
+        x -= 20;
+    }
+    if(e.key==="ArrowRight" && x<280){
+        x += 20;
+    }
+    car.style.left = x + "px";
+});
+</script>
+
+</body>
+</html>
